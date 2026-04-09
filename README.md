@@ -1,3 +1,4 @@
+
 # 🚀 Hackatón 0 – CS2031
 
 ¡Bienvenidos! 🎉
@@ -6,6 +7,7 @@ Desde el curso **CS2031** les damos una cordial bienvenida al ciclo **2026-1**. 
 ## 🤔 ¿Qué trae esta Hackatón?
 
 Esta **Hackatón 0** es una primera muestra del concepto de hackatones. Los equipos son de **exactamente 3 integrantes** y el proyecto tiene varios bugs intencionales para resolver. El foco es el mismo de siempre:
+
 
 > **Git + GitHub + HTML + CSS + trabajo en equipo**
 
@@ -36,6 +38,7 @@ Un TA (que no diremos quién 🤫) volvió a meter mano en el repositorio y romp
 ---
 
 ## 👑 Organización del equipo
+
 
 - Elijan un **líder de equipo** que cree el repositorio a partir de la plantilla `cs2031-2026-1-hackathon-0` (asegurándose de incluir **todas las ramas**).
 - El líder da acceso de colaborador a los otros 2 integrantes.
@@ -118,6 +121,7 @@ Los 3 links del menú apuntan a IDs incorrectos:
 
 ---
 
+
 ### ✅ Publicado en GitHub Pages
 
 El deploy es **automático** gracias al workflow `.github/workflows/deploy.yml`. Cada push a `main` despliega la página sin configuración manual.
@@ -129,6 +133,28 @@ Solo necesitan habilitarlo una vez en la configuración del repositorio:
 
 La URL del sitio aparece en la pestaña **Environments → github-pages** del repositorio.
 
+### #4 — Bug de CSS (1 PR)
+
+En `index.css`, en la **línea 2**, hay una regla suelta que sobreescribe el color del `h1`:
+
+```css
+/* BUG #4: esta regla sobreescribe el color correcto del h1 definido más abajo */
+h1 { color: purple; }
+```
+
+Esta regla hace que el título principal del hero se vea de color morado en lugar del color correcto (`var(--color-secondary)`). Debe eliminarse.
+
+**Rama sugerida:** `bugfix/h1-color`
+
+---
+
+### ✅ Publicado en GitHub Pages
+
+- Activar GitHub Pages desde la rama `main`.
+- Validar que el sitio cargue correctamente y compartir la URL.
+- Referencia: [Configurar GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+
 ---
 
 ## ⚡ Ejemplo de conflicto en `index.html`
@@ -137,15 +163,15 @@ Cuando dos integrantes editan líneas cercanas, Git genera algo así:
 
 ```html
 <div class="team-card">
-  <<<<<<< HEAD
+
   <h3 class="team-card__name">Ana Torres</h3>
   <p class="team-card__role">Frontend Developer</p>
   <a href="https://github.com/anatorres">GitHub</a>
-  =======
+
   <h3 class="team-card__name">Luis Ríos</h3>
   <p class="team-card__role">Backend Developer</p>
   <a href="https://github.com/luisrios">GitHub</a>
-  >>>>>>> feat/member-luis
+  
 </div>
 ```
 
@@ -174,6 +200,7 @@ La tarea del equipo es **resolver esto manualmente**, eliminando los marcadores 
 | `clean-css` | 1 integrante | CSS modular | 1 PR |
 | `navbar-fix` | 1 integrante | Corrección de enlaces | 1 PR |
 
+
 > El líder puede asignar las ramas `clean-css`, `navbar-fix` como tareas a distintos integrantes del equipo.
 
 ## ⚙️ GitHub Actions incluidas
@@ -188,6 +215,11 @@ La tarea del equipo es **resolver esto manualmente**, eliminando los marcadores 
 - Verifica que todos los `href="#..."` del HTML apunten a un `id` que realmente existe — el PR **no podrá mergearse** si el navbar tiene links rotos
 
 **`deploy.yml`** despliega automáticamente la página en GitHub Pages tras cada merge a `main` (TODO).
+
+| `bugfix/h1-color` | 1 integrante | Bug de CSS | 1 PR |
+
+> El líder puede asignar las ramas `clean-css`, `navbar-fix` y `bugfix/h1-color` como tareas a distintos integrantes del equipo.
+
 
 ---
 
